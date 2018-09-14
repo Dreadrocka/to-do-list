@@ -32,15 +32,17 @@ class Tasks extends Controller
     public function store(TaskRequest $request)
     {
         // get post request data for title and article
-    $data = $request->only(["title", "notes", "dueDate"]);
+        $data = $request->only(["title", "notes", "dueDate"]);
 
-    // create article with data and store in DB
-    $task = Task::create($data);
+        // create article with data and store in DB
+        $task = Task::create($data);
 
-    $categories = Category::parse($request->get("categories"));
-    $task->setCategories($categories);
+        // if($request->get("categories")) {
+        //     $categories = Category::parse($request->get("categories"));
+        //     $task->setCategories($categories);        
+        // }
 
-    return $task;
+        return $task;
     }
 
     /**
@@ -69,8 +71,8 @@ class Tasks extends Controller
     // update the article
     $task->fill($data)->save();
 
-    $categories = Category::parse($request->get("categories"));
-    $task->setCategories($categories);
+    // $categories = Category::parse($request->get("categories"));
+    // $task->setCategories($categories);
 
     // return the updated version
     return new TaskResource($task);

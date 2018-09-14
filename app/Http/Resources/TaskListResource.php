@@ -17,6 +17,7 @@ class TaskListResource extends JsonResource
         $this->resource->load("categories");
 
         return [
+            "id" => $this->id,
             "title" => $this->title,
             "dueDate" => $this->dueDate,
             "complete" => $this->complete,

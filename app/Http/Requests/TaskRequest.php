@@ -28,8 +28,8 @@ class TaskRequest extends FormRequest
             "notes" => ["", "string"],
             "dueDate" => ["date"],
             "complete" => ["boolean"],
-            "categories" => ["required", "array"], // check tags is an array
-            "categories.*" => ["string", "max:30"], // check members of tags are strings
+            // "categories" => ["array"], // check tags is an array
+            // "categories.*" => ["string", "max:30"], // check members of tags are strings
         ];
     }
 }

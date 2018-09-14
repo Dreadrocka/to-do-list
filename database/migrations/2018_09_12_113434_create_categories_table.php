@@ -18,7 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->string("name", 30); // tags just need a name property, don't need timestamps
         });
     
-        Schema::create("task_category", function (Blueprint $table) {
+        Schema::create("category_task", function (Blueprint $table) {
             $table->increments("id");
             $table->integer("task_id")->unsigned();
             $table->integer("category_id")->unsigned();
